@@ -1,20 +1,29 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { AntDesign } from "@expo/vector-icons"
+import Home from './components/Home';
+import Translate from './components/Translate';
+
+const Tab = createBottomTabNavigator()
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+
+      
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name='Asosiy' options={{ tabBarIcon(proms) { return <AntDesign name='home'  {...proms} /> } }} component={Home} />
+            <Tab.Screen name='Tarjima qilish' options={{ tabBarIcon(proms) { return <AntDesign name='search1'  {...proms} /> } }} component={Translate} />
+          </Tab.Navigator>
+        </NavigationContainer>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 });
